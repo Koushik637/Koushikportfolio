@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manga: 'Bebas Neue', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --manga-black: #0c0d10;
+    --manga-dark: #14161b;
+    --manga-panel: #1b1e26;
+    --manga-border: #313645;
+    --manga-accent: #ff2a55; /* Manga Vermilion / Crimson Ink */
+    --manga-accent-glow: rgba(255, 42, 85, 0.4);
+    --manga-electric: #00f0ff; /* Subtle futuristic neon accent */
+    --manga-paper: #f6f5f0;
+    --font-manga: 'Bebas Neue', sans-serif;
+    --font-jp: 'Noto Sans JP', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--manga-black);
+    color: #e5e7eb;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-manga-title, .font-manga {
+    font-family: var(--font-manga), 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .font-jp {
+    font-family: var(--font-jp), 'Noto Sans JP', sans-serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  }
+
+  .font-sans {
+    font-family: var(--font-body), 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Manga Screentone Patterns (Dot Halftone) */
+.manga-screentone {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.manga-screentone-dense {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.18) 1.2px, transparent 1.2px);
+  background-size: 6px 6px;
+}
+
+.manga-screentone-dark {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* Manga Speed Lines */
+.manga-speedlines {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.03) 12px,
+    rgba(255, 255, 255, 0.03) 13px
+  );
+}
+
+.manga-speedlines-radial {
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 2deg,
+    rgba(255, 255, 255, 0.04) 2.5deg,
+    transparent 3deg
+  );
+}
+
+/* Manga Panel Borders & Hard Shadows */
+.manga-panel {
+  border: 2px solid #2e3342;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manga-panel-white {
+  background-color: #f7f6f2;
+  color: #11141a;
+  border: 3px solid #11141a;
+  box-shadow: 5px 5px 0px 0px #ff2a55;
+}
+
+.manga-panel-interactive:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #ff2a55;
+  border-color: #ff2a55;
+}
+
+/* Manga Sound Effect (SFX) Typography */
+.manga-sfx {
+  font-family: var(--font-jp);
+  font-weight: 900;
+  text-shadow: 
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0px 4px 0px rgba(0,0,0,0.8);
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* SFX Disabled state for quieter reading mode */
+.sfx-disabled .manga-sfx {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0d10;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a34;
+  border: 1px solid #ff2a55;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2a55;
+}
