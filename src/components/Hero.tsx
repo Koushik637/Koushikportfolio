@@ -3,6 +3,7 @@ import { HERO_DATA } from '../data/portfolioData';
 import { ArrowDown, Flame, Compass, Terminal, Shield, Zap } from 'lucide-react';
 import { useParallax, useGlobalScrollParallax } from '../hooks/useParallax';
 import { MangaGutterNav } from './MangaGutterNav';
+import { MangaImagePanel } from './MangaImagePanel';
 
 export const Hero: React.FC = () => {
   const scrollTo = (href: string) => {
@@ -160,17 +161,17 @@ export const Hero: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Character Silhouette / Manga Ink Image with Depth Scale */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-neutral-900">
-                  <img
-                    src={HERO_DATA.heroImage}
-                    alt="Original Manga Developer Protagonist Silhouette"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center filter grayscale contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-500"
-                  />
+                {/* Character Silhouette / Manga Ink Image with Depth Scale & Ink-Drop Loading Placeholder */}
+                <MangaImagePanel
+                  src={HERO_DATA.heroImage}
+                  alt="Original Manga Developer Protagonist Silhouette"
+                  aspectRatio="aspect-[3/4]"
+                  className="object-center group-hover:scale-105 transition-transform duration-500"
+                  loadingCaption="INKING PROTAGONIST // 作画中"
+                >
                   {/* Subtle Screentone Tint Scrim */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d10] via-transparent to-transparent opacity-80" />
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d10] via-transparent to-transparent opacity-80 pointer-events-none" />
+                </MangaImagePanel>
 
                 {/* Panel Footer Caption */}
                 <div className="bg-[#191c26] p-3 border-t-2 border-white/20 flex items-center justify-between text-xs font-mono">

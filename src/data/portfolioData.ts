@@ -1,4 +1,8 @@
 import { ProjectQuest, SkillItem, JourneyMilestone } from '../types';
+import mangaHeroImg from '../assets/images/manga_hero_protagonist_1790252290334.jpg';
+import mangaCityWalkImg from '../assets/images/manga_futuristic_city_walk_1790252329666.jpg';
+import mangaCricketStadiumImg from '../assets/images/manga_cricket_stadium_1790252305481.jpg';
+import mangaInvoiceDashboardImg from '../assets/images/manga_invoice_dashboard_1790252317708.jpg';
 
 export const HERO_DATA = {
   kanjiTitle: "物語の始まり",
@@ -16,8 +20,8 @@ export const HERO_DATA = {
   ],
   location: "Hyderabad, India",
   email: "koushikanandam220@gmail.com",
-  heroImage: "/src/assets/images/manga_hero_protagonist_1790252290334.jpg",
-  cityWalkImage: "/src/assets/images/manga_futuristic_city_walk_1790252329666.jpg"
+  heroImage: mangaHeroImg,
+  cityWalkImage: mangaCityWalkImg
 };
 
 export const CHARACTER_PROFILE = {
@@ -184,7 +188,7 @@ export const QUESTS: ProjectQuest[] = [
       { step: "03", label: "PREDICTION ENGINE" },
       { step: "04", label: "PLAYER PERFORMANCE" }
     ],
-    image: "/src/assets/images/manga_cricket_stadium_1790252305481.jpg",
+    image: mangaCricketStadiumImg,
     status: "COMPLETED",
     rank: "S-RANK"
   },
@@ -211,7 +215,7 @@ export const QUESTS: ProjectQuest[] = [
       "Automated reminders",
       "Dashboards and reports"
     ],
-    image: "/src/assets/images/manga_invoice_dashboard_1790252317708.jpg",
+    image: mangaInvoiceDashboardImg,
     status: "COMPLETED",
     rank: "S-RANK"
   },
@@ -233,7 +237,7 @@ export const QUESTS: ProjectQuest[] = [
       { label: "Reduction in Customer Inquiry Response Time", value: "40%" },
       { label: "Improvement in Customer Satisfaction Scores", value: "25%" }
     ],
-    image: "/src/assets/images/manga_hero_protagonist_1790252290334.jpg",
+    image: mangaHeroImg,
     status: "COMPLETED",
     rank: "S-RANK"
   }

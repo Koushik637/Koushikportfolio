@@ -2,6 +2,7 @@ import React from 'react';
 import { HERO_DATA } from '../data/portfolioData';
 import { ArrowUp } from 'lucide-react';
 import { useParallax, useGlobalScrollParallax } from '../hooks/useParallax';
+import { MangaImagePanel } from './MangaImagePanel';
 
 export const FinalMangaPage: React.FC = () => {
   const scrollToTop = () => {
@@ -38,21 +39,23 @@ export const FinalMangaPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Full-Width Manga Artwork with Depth Parallax */}
+          {/* Full-Width Manga Artwork with Depth Parallax & Ink-Drop Loading Placeholder */}
           <div className="relative aspect-[21/9] sm:aspect-[16/7] w-full overflow-hidden bg-neutral-950">
             <div
               ref={imageParallax.ref}
               style={imageParallax.style}
               className="w-full h-[120%] -mt-[10%] relative"
             >
-              <img
+              <MangaImagePanel
                 src={HERO_DATA.cityWalkImage}
                 alt="Protagonist walking toward the futuristic AI metropolis"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-bottom filter grayscale contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700"
-              />
-              {/* Dark Scrim overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 opacity-70" />
+                aspectRatio="aspect-auto h-full w-full"
+                className="object-bottom group-hover:scale-105 transition-transform duration-700"
+                loadingCaption="INKING CITYSCAPE // 街並作画中"
+              >
+                {/* Dark Scrim overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 opacity-70 pointer-events-none" />
+              </MangaImagePanel>
             </div>
           </div>
 

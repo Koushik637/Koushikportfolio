@@ -140,3 +140,72 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ff2a55;
 }
+
+/* Manga Ink-Drop & Ripple Loading Keyframes */
+@keyframes inkDropAnim {
+  0% {
+    transform: translateY(-26px) scale(0.6, 1.4);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(0px) scale(1.15, 0.85);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-3px) scale(0.95, 1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes inkRippleAnim {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.9;
+    border-width: 2.5px;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes inkGlowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.animate-ink-drop {
+  animation: inkDropAnim 1.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-ink-ripple-1 {
+  animation: inkRippleAnim 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.animate-ink-ripple-2 {
+  animation: inkRippleAnim 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  animation-delay: 0.55s;
+}
+
+.animate-ink-ripple-3 {
+  animation: inkRippleAnim 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  animation-delay: 1.1s;
+}
+
+.animate-ink-glow {
+  animation: inkGlowPulse 1.8s ease-in-out infinite;
+}
+

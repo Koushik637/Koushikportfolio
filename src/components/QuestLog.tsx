@@ -7,6 +7,7 @@ import { AIChatbotModal } from './AIChatbotModal';
 import { Play } from 'lucide-react';
 import { useParallax, useGlobalScrollParallax } from '../hooks/useParallax';
 import { MangaGutterNav } from './MangaGutterNav';
+import { MangaImagePanel } from './MangaImagePanel';
 
 interface QuestCardItemProps {
   quest: ProjectQuest;
@@ -47,15 +48,14 @@ const QuestCardItem: React.FC<QuestCardItemProps> = ({ quest, index, onOpenModal
             style={imageParallax.style}
             className="relative border-2 border-neutral-600 bg-neutral-900 overflow-hidden shadow-[4px_4px_0px_#000] group/img"
           >
-            {/* Manga Screentone Frame */}
-            <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
-              <img
-                src={quest.image}
-                alt={quest.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover filter grayscale contrast-125 brightness-90 group-hover/img:scale-105 transition-transform duration-500"
-              />
-            </div>
+            {/* Manga Screentone Frame with Ink-Drop Loading Placeholder */}
+            <MangaImagePanel
+              src={quest.image}
+              alt={quest.title}
+              aspectRatio="aspect-[16/10] sm:aspect-[16/9]"
+              className="group-hover/img:scale-105 transition-transform duration-500"
+              loadingCaption={`INKING ${quest.questNumber} // 描画中`}
+            />
 
             {/* Overlay Katakana sound effect with counter-parallax */}
             <div
